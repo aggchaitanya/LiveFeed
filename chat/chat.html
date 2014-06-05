@@ -1,0 +1,50 @@
+
+<head>
+  <title>chat</title>
+
+</head>
+
+<body>
+{{> selected}}
+</body>
+
+<template name="selected">
+    
+    <div class="row">
+    <div class="span4">
+      <div class="well">
+      <div class = "active">
+		<p class="text-error">
+		<table >
+		<tbody>
+		{{#each positives}}
+		<tr class = "success">
+
+			<td><h4> {{name}}</h4></td>
+
+		
+			<td>
+		
+
+			<p class="text-warning">
+			<em>
+			<h5>
+			{{message}}
+			</h5></em>
+			</p>
+			</td>
+
+        </tr>
+        <br>
+        {{/each}}
+        </tbody>
+        </table>
+            </p>
+                        
+        </div>
+        </div>
+        </div>
+        </div>
+        
+</template>
+
