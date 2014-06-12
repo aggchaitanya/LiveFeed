@@ -1,50 +1,106 @@
 
 <head>
-  <title>chat</title>
+	<title>chat</title>
+	<link rel = "stylesheet" href = "style.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>    
+
+	<script>
+
+$(function(){
+
+
+
+
+$(document).ready(function(){
+
+		var d = new Date();
+		var millid=d.getTime();
+		//alert(millid);
+		document.getElementById('getkudos').innerHTML = millid
+
+
+
+});
+});
+
+$('#getkudos').{
+
+}
+
+
+
+
+	</script>
 
 </head>
 
 <body>
-{{> selected}}
+	{{> selected}}
 </body>
 
 <template name="selected">
-    
-    <div class="row">
-    <div class="span4">
-      <div class="well">
-      <div class = "active">
-		<p class="text-error">
-		<table >
-		<tbody>
-		{{#each positives}}
-		<tr class = "success">
+	<div class = "container-fixed" style="height:900px">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class = "panel panel-info">    				
+					<div class="panel-heading text-center">
+						<span class="glyphicon glyphicon-eye-open"><h6>Top Comments</h6></span>
+					</div>
+					<div class="pannel-body text-center">
+						<div id = "Fungroo" class = "carousel slide"  data-ride="carousel">
+							<div class= "carousel-inner">
+								<div class = "item active text-center">
+									<h4>Word Around</h4>
+								</div>
+								{{#each positives}}
+								<div class = "item">
+									<a href="#" class="list-group-item ">
+										<span class = "glyphicon glyphicon-star"><h4> {{message}} </h4></span>
+										<em><h6>{{name}}</h6></em>  
+									</a> 
 
-			<td><h4> {{name}}</h4></td>
+									<p id = "getkudos" >		
+									</p>
+								</div>
+								{{/each}}
 
-		
-			<td>
-		
 
-			<p class="text-warning">
-			<em>
-			<h5>
-			{{message}}
-			</h5></em>
-			</p>
-			</td>
+								<div class = "item">
+									<h3>No. of Satisfied Customers : 98%</h3>
+									<img src = "smiley.jpg">
+								</div>
 
-        </tr>
-        <br>
-        {{/each}}
-        </tbody>
-        </table>
-            </p>
-                        
-        </div>
-        </div>
-        </div>
-        </div>
-        
+								<div class = "item">
+									<a href="#" class="list-group-item ">
+										<span class = "glyphicon glyphicon-comment"><h5>Via Twitter</h5><h4> Yo </h4></span>
+										<em><h6>FFF</h6></em>  
+									</a> 
+								</div>	
+
+
+
+							</div>
+							<!-- <li class="list-group-item ">  -->
+							<a href="#Fungroo" data-slide="prev" class="left carousel-control">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#Fungroo" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+							
+
+
+
+						</div>
+						<!-- </li> -->
+					</div>
+					<div class="panel-footer"><h6>Powered by <a href="http://www.fungroo.com/">fungroo.com</a></h6></div>
+				</div>
+			</div>
+		</div>        
+	</div>
 </template>
 

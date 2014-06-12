@@ -1,0 +1,19 @@
+.carousel-control{
+top:1em !important;
+height: 100%;
+/*background: #fff !important;*/
+background: #FFFFFF;
+
+}
+
+.carousel{
+	height: 100%;
+}
+
+img { 
+
+	vertical-align: middle;
+	top:1em !important;
+
+}
+

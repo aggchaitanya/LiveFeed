@@ -1,0 +1,42 @@
+<html> 
+<head> 
+<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>    
+<script>
+
+$(function(){
+
+
+// $(document).scroll(function () {
+//    ifrm = document.createElement("IFRAME"); 
+//    ifrm.setAttribute("src", "http://localhost:4000/"); 
+//    ifrm.style.width = 250+"px"; 
+//    ifrm.style.height = 350+"px";
+//     ifrm.setAttribute("frameborder", "0");  
+   
+//    document.body.appendChild(ifrm); 
+
+
+// });
+
+
+$('#getkudos').hover(function(e){
+
+  e.preventDefault();
+   ifrm = document.createElement("IFRAME"); 
+   ifrm.setAttribute("src", "http://localhost:4000/"); 
+   ifrm.style.width = 250+"px"; 
+   ifrm.style.height = 300+"px";
+   ifrm.setAttribute("frameborder", "0"); 
+   ifrm.style.align = "right"; 
+   ifrm.setAttribute("onmouseout","closeFrame()");
+   
+   document.body.appendChild(ifrm); 
+});
+});
+
+</script>
+</head> 
+<body> 
+<p><a href="#" id = "getkudos">GO! </a></p> 
+</body> 
+</html> 

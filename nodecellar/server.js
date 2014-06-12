@@ -21,34 +21,52 @@ app.configure(function () {
 
  
 app.post('/endpoint', function(req, res){
-   // var obj = {};
-    //console.log('body: ' + JSON.stringify(req.body));
-   // obj = JSON.stringify(req.body);
+  var name123 = req.body.name;
+  var message123 = req.body.message;
 
-    //res.send(req.body);
+
 
     var wine = req.body;
     console.log('Adding wine: ' + JSON.stringify(wine));
-    db.collection('wines', function(err, collection) {
-        collection.insert(wine, {safe:true}, function(err, result) {
-            if (err) {
-                res.send({'error':'An error has occurred'});
-            } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                  res.send(req.body);
+
+    console.log('name' + name123 + ' message ' + message123 );
+
+    db.collection('comments', function(err, collection) {
+        collection.count({'name': name123 , 'message': message123},function(err,result){
+            if (result == 0){
+                console.log("does not exist");
+
+                db.collection('comments',function(err,collection){
+                collection.insert(wine, {safe:true}, function(err, result) {
+                 if (err) {
+                  res.send({'error':'An error has occurred'});
+                 } else {
+                        console.log('Success: ' + JSON.stringify(result[0]));
+                        res.send(req.body);
+                        }
+                    });
+            });
+
+
+            }
+            else{
+                console.log("exists");
+                res.send("gaand mara");
             }
         });
+   
+
     });
 
-  
+
 });
 
 app.get('/endpoint', wine.endpoint);
-app.get('/wines', wine.findAll);
-app.get('/wines/:id', wine.findById);
-app.post('/wines', wine.addWine);
-app.put('/wines/:id', wine.updateWine);
-app.delete('/wines/:id', wine.deleteWine);
+app.get('/comments', wine.findAll);
+app.get('/comments/:id', wine.findById);
+app.post('/comments', wine.addWine);
+app.put('/comments/:id', wine.updateWine);
+app.delete('/comments/', wine.deleteWine);
  
 app.listen(3000);
 console.log('Listening on port 3000...');
